@@ -1,0 +1,27 @@
+from  registration import register_user
+from  sshlogin import login,interactive,sshclient
+
+w_file = '/tmp/123.txt'
+
+#register_user.registration('172.31.19.77','root','22',w_file,p='123456')
+#register_user.registration('52.80.14.237','centos','22',w_file,cert_path='/home/capella.pem')
+#register_user.registration('192.168.8.57','root','22',w_file,p='123456')
+
+#user=login.Secret_check('172.31.19.22',w_file,pw='123456')
+#user=login.Secret_check('172.31.19.99',w_file,cert_path='/tmp/aab.crt')
+#user=login.Secret_check('52.80.14.237',w_file,cert_path='/home/capella.pem')
+#print (user.check_secret())
+
+#user = login.Secret_check('192.168.8.57',w_file,pw='123456')
+#if user.check_secret():
+#    ssh_client = sshclient.SSHConnection('192.168.8.57','22','root','123456')
+#    #ssh_client.exec_command("ls")
+#    #ssh_client.close()
+#    ssh_client.load_system_host_keys()
+#    channel = ssh_client.invoke_shell()
+#    interactive.interactive_shell(channel)
+
+#tty = sshclient.SSHConnection('192.168.8.57','22','root','123456')
+tty = sshclient.SSHConnection('52.80.14.237','22','centos',cert='/home/capella.pem')
+#import pdb;pdb.set_trace()
+tty.get_tty()
